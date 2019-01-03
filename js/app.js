@@ -1,9 +1,3 @@
-/* Theme Name: Dorsin - Responsive Landing page template
-   Author: Themesbrand
-   Version: 1.0.0
-   Created: July 2018
-   File Description: Main JS file of the template
-*/
 (function ($) {
 
     'use strict';
@@ -14,6 +8,15 @@
             var $anchor = $(this);
             $('html, body').stop().animate({
                 scrollTop: $($anchor.attr('href')).offset().top - 0
+            }, 1500, 'easeInOutExpo');
+            event.preventDefault();
+        });
+
+        $('.navbar-nav button').bind('click', function(event) {
+            var $button = $(this);
+
+            $('html, body').stop().animate({
+                scrollTop: $($button.attr('data-href')).offset().top - 0
             }, 1500, 'easeInOutExpo');
             event.preventDefault();
         });
@@ -32,19 +35,6 @@
 		    offset:20
 		});
 	}
-
-	// Magnific Popup
-    function initMagnificPopup() {
-        $('.video-play-icon').magnificPopup({
-          disableOn: 700,
-          type: 'iframe',
-          mainClass: 'mfp-fade',
-          removalDelay: 160,
-          preloader: false,
-
-          fixedContentPos: false
-        });
-    }
 
     function initContactForm() {
     	$('#contact-form').submit(function() {
